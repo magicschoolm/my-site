@@ -1,0 +1,382 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+
+  font-family: "Inter", "Segoe UI", sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #f4eee3 0%,
+      #e9dfcf 45%,
+      #d9cbb8 100%
+    );
+
+  position: relative;
+}
+
+
+/* =========================================
+   MOVING STAR FIELD
+========================================= */
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: -100px;
+
+  pointer-events: none;
+
+  opacity: 0.7;
+
+  background-image:
+    radial-gradient(circle, #75634f 1.5px, transparent 1.8px),
+    radial-gradient(circle, #9b876c 1px, transparent 1.5px),
+    radial-gradient(circle, #665442 1px, transparent 1.5px);
+
+  background-size:
+    130px 140px,
+    190px 180px,
+    250px 230px;
+
+  background-position:
+    10px 20px,
+    50px 80px,
+    100px 30px;
+
+  animation: starDrift 35s linear infinite;
+}
+
+
+/* =========================================
+   SECOND STAR LAYER
+========================================= */
+
+body::after {
+  content: "";
+
+  position: fixed;
+  inset: -100px;
+
+  pointer-events: none;
+
+  opacity: 0.45;
+
+  background-image:
+    radial-gradient(circle, #ffffff 2px, transparent 2.5px),
+    radial-gradient(circle, #8d765a 1.5px, transparent 2px);
+
+  background-size:
+    230px 210px,
+    310px 280px;
+
+  background-position:
+    40px 100px,
+    150px 40px;
+
+  animation:
+    starDriftReverse 50s linear infinite,
+    starTwinkle 4s ease-in-out infinite alternate;
+}
+
+
+/* =========================================
+   STAR MOVEMENT
+========================================= */
+
+@keyframes starDrift {
+
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-35px, 45px);
+  }
+
+  100% {
+    transform: translate(-70px, 90px);
+  }
+}
+
+
+@keyframes starDriftReverse {
+
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(40px, -30px);
+  }
+
+  100% {
+    transform: translate(80px, -60px);
+  }
+}
+
+
+@keyframes starTwinkle {
+
+  0% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================
+   ADVICE CARD
+========================================= */
+
+.advice-app {
+  position: relative;
+  z-index: 10;
+
+  width: min(90%, 600px);
+
+  padding: 55px 50px;
+
+  text-align: center;
+
+  background: rgba(250, 246, 238, 0.88);
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  border-radius: 30px;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 35px 80px rgba(72, 58, 42, 0.18),
+    0 8px 25px rgba(72, 58, 42, 0.08);
+
+  animation: cardAppear 0.8s ease;
+}
+
+
+/* =========================================
+   CARD GLOW
+========================================= */
+
+.advice-app::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  top: -100px;
+  right: -80px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 236, 195, 0.35);
+
+  filter: blur(30px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   DAILY ADVICE BADGE
+========================================= */
+
+.advice-app::before {
+  content: "✦  DAILY ADVICE  ✦";
+
+  display: inline-block;
+
+  margin-bottom: 28px;
+
+  padding: 8px 17px;
+
+  border-radius: 50px;
+
+  background: #ebe2d3;
+
+  color: #806c54;
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================================
+   ADVICE
+========================================= */
+
+.advice-app h3 {
+  position: relative;
+
+  margin-bottom: 35px;
+
+  color: #40372f;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+
+  line-height: 1.55;
+
+  font-weight: 500;
+}
+
+
+/* Quote mark */
+
+.advice-app h3::before {
+  content: "“";
+
+  display: block;
+
+  height: 38px;
+
+  color: #b69b7b;
+
+  font-family: Georgia, serif;
+
+  font-size: 4.5rem;
+
+  line-height: 1;
+
+  opacity: 0.7;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.advice-app button {
+  border: none;
+  outline: none;
+
+  padding: 14px 30px;
+
+  border-radius: 50px;
+
+  background: #40372f;
+
+  color: #fffaf2;
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(64, 55, 47, 0.22);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+
+.advice-app button:hover {
+  transform: translateY(-4px);
+
+  background: #57493d;
+
+  box-shadow:
+    0 14px 30px rgba(64, 55, 47, 0.28);
+}
+
+
+.advice-app button:active {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   COUNTER
+========================================= */
+
+.advice-app p {
+  margin-top: 26px;
+
+  color: #9a8d7d;
+
+  font-size: 0.9rem;
+}
+
+
+.advice-app p b {
+  color: #80684f;
+
+  font-size: 1rem;
+}
+
+
+/* =========================================
+   CARD ANIMATION
+========================================= */
+
+@keyframes cardAppear {
+
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .advice-app {
+    width: 90%;
+
+    padding: 40px 25px;
+
+    border-radius: 26px;
+  }
+
+  .advice-app h3 {
+    font-size: 1.3rem;
+  }
+
+  .advice-app button {
+    width: 100%;
+  }
+}

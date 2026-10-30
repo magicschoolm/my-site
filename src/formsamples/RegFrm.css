@@ -1,0 +1,307 @@
+/* RegFrm.css */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "DM Sans", sans-serif;
+
+  background:
+    radial-gradient(circle at 10% 10%, rgba(217, 119, 87, 0.16), transparent 28%),
+    radial-gradient(circle at 90% 90%, rgba(128, 130, 87, 0.16), transparent 28%),
+    #f5efe6;
+
+  color: #382c24;
+}
+
+/* Main layout */
+
+#root {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 45px;
+
+  padding: 50px 25px;
+
+  flex-wrap: wrap;
+}
+
+/* =========================
+   TABLE / PREVIEW CARD
+========================= */
+
+table {
+  width: 380px;
+
+  border-collapse: separate;
+  border-spacing: 0;
+
+  background: #fffaf3;
+
+  border: 1px solid #e4d5c4;
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 15px 35px rgba(72, 52, 38, 0.12);
+}
+
+/* Table rows */
+
+tr {
+  transition: background-color 0.2s ease;
+}
+
+tr:hover {
+  background-color: #faf0e5;
+}
+
+/* Table cells */
+
+td {
+  padding: 17px 20px;
+
+  border-bottom: 1px solid #eadfd2;
+
+  font-size: 14px;
+}
+
+/* First column */
+
+td:first-child {
+  width: 40%;
+
+  color: #9a6048;
+
+  font-weight: 600;
+
+  text-transform: capitalize;
+}
+
+/* Second column */
+
+td:last-child {
+  color: #55463c;
+  font-weight: 500;
+}
+
+/* Remove last border */
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+form {
+  width: 420px;
+
+  padding: 32px;
+
+  background: #fffaf3;
+
+  border: 1px solid #e4d5c4;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 15px 35px rgba(72, 52, 38, 0.12);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+
+/* =========================
+   TEXT & NUMBER INPUTS
+========================= */
+
+form input[type="text"],
+form input[type="number"],
+form textarea,
+form select {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  border: 1px solid #d8c8b8;
+
+  border-radius: 10px;
+
+  background: #fdf9f3;
+
+  color: #382c24;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+
+/* Focus */
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form textarea:focus,
+form select:focus {
+  background: #ffffff;
+
+  border-color: #c96f4f;
+
+  box-shadow:
+    0 0 0 3px rgba(201, 111, 79, 0.12);
+}
+
+
+/* =========================
+   GENDER
+========================= */
+
+.Gender {
+  display: flex;
+
+  gap: 25px;
+
+  padding: 5px 0;
+}
+
+.Gender label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: #66564b;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+
+/* Radio buttons */
+
+.Gender input[type="radio"] {
+  accent-color: #c96f4f;
+
+  width: 16px;
+  height: 16px;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   MARRIED CHECKBOX
+========================= */
+
+label[for="isMarried"] {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: #66564b;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+
+  accent-color: #c96f4f;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   COUNTRY
+========================= */
+
+.select_country {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.select_country label {
+  color: #8b6a58;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+/* =========================
+   TEXTAREA
+========================= */
+
+textarea {
+  min-height: 120px;
+
+  resize: vertical;
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: #ad9a8b;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+  #root {
+    flex-direction: column;
+
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 25px 15px;
+  }
+
+  form,
+  table {
+    width: 100%;
+  }
+
+  form {
+    padding: 22px;
+  }
+}

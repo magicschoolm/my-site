@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "DM Sans", sans-serif;
+  background-color: aliceblue;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+}
+
+/* Heading */
+
+.app-container h1 {
+  margin-bottom: 25px;
+
+  font-weight: 600;
+  font-size: 24px;
+
+  color: #971e1e;
+
+  border-bottom: 1px solid #ccc;
+  padding: 10px 20px;
+}
+
+/* QR image */
+
+.qr-code-image {
+  width: 150px;
+  height: 150px;
+
+  padding: 5px;
+  margin-bottom: 25px;
+
+  background-color: white;
+
+  border-radius: 8px;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Labels */
+
+.input-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #333;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* URL input */
+
+.qr-input-link {
+  display: block;
+
+  width: 460px;
+
+  padding: 12px;
+
+  margin-bottom: 20px;
+
+  font-size: 15px;
+
+  background-color: white;
+
+  border: 2px solid #971e1e;
+  border-radius: 7px;
+
+  outline: none;
+}
+
+.qr-input-link:focus {
+  border-color: #d45b3f;
+}
+
+/* Size input */
+
+.qr-input-size {
+  display: block;
+
+  width: 460px;
+
+  padding: 12px;
+
+  margin-bottom: 20px;
+
+  font-size: 15px;
+
+  background-color: white;
+
+  border: 2px solid #ccc;
+  border-radius: 7px;
+
+  outline: none;
+}
+
+.qr-input-size:focus {
+  border-color: #971e1e;
+}
+
+/* Buttons */
+
+button {
+  padding: 12px 20px;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+
+  transition: 0.2s ease;
+}
+
+/* Generate */
+
+.generate-button {
+  color: white;
+
+  background-color: #25afd1;
+
+  border: none;
+
+  margin-right: 10px;
+}
+
+.generate-button:hover {
+  background-color: #168fae;
+}
+
+.generate-button:disabled {
+  background-color: #aaa;
+
+  cursor: not-allowed;
+}
+
+/* Download */
+
+.download-button {
+  color: #333;
+
+  background-color: white;
+
+  border: 1px solid #ccc;
+}
+
+.download-button:hover {
+  background-color: #f1f1f1;
+}
+
+.download-button:disabled {
+  background-color: #ddd;
+
+  color: #999;
+
+  cursor: not-allowed;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .qr-input-link,
+  .qr-input-size {
+    width: 90vw;
+  }
+
+  .app-container {
+    padding: 20px;
+  }
+}
